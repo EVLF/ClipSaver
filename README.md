@@ -5,7 +5,7 @@ Small Program to automatically save all clipboards text , never lose what you co
 
 1 : add to windows startup
 
-2 : Save Program name (Where Text get Copied)
+2 : Save Program or folder name (Where Text get Copied)
 
 3 : Prevent duplicate
 
