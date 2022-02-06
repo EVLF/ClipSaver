@@ -1,11 +1,16 @@
 # ClipSaver
 Small Program to automatically save all clipboards text , never lose what you copy
 ----------------------------
-**Optins : 
+**Optins** : 
+
 1 : add to windows startup
+
 2 : Save Program name (Where Text get Copied)
+
 3 : Prevent duplicate
-4 : Minimize to system tray**
+
+4 : Minimize to system tray
+
 ----------------------------
 PS : Data Saved in xml file 
 in the same folder where program running
@@ -23,4 +28,5 @@ Spical Thanks To :
 [Vip.Notification](https://github.com/leandrovip/Vip.Notification) :Simple library for toast alert notification in winforms.
 
 [DrakeUI.Framework](https://github.com/drakelam/DrakeUI-Framework/) :DrakeUI Framework Library - Libraries tools, software development,applications, interface design many colors.
-
+-------
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details
