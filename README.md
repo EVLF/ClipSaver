@@ -11,6 +11,7 @@ Small Program to automatically save all clipboards text , never lose what you co
 
 4 : Minimize to system tray
 
+5: Use HotKeys (open float window to easy copy text)
 ----------------------------
 PS : Data Saved in xml file 
 in the same folder where program running
@@ -22,6 +23,10 @@ and encoded with Base64
 ![image](https://user-images.githubusercontent.com/54191699/152693983-027ece8c-528d-400d-aca0-dd7731cdb6a4.png)
 
 ![image](https://user-images.githubusercontent.com/54191699/152693992-e77ec7d0-49e0-4c26-b4c5-6446f449727c.png)
+
+Float Window :
+![image](https://user-images.githubusercontent.com/54191699/153855192-6d37a3fa-4e13-4404-8b67-04eaaf696552.png)
+
 
 ---------------
 **Spical Thanks To** :
