@@ -27,7 +27,7 @@ namespace ClipSaver
                     {
                         if (args[0].Replace("/", "") == "fromstart")
                         {
-                            statics.isFromStartUp = true;
+                            Constants.isFromStartUp = true;
                         }
 
                     }

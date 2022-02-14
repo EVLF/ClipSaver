@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Classes\Nativs.cs" />
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Forms\Quickview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Quickview.Designer.cs">
+      <DependentUpon>Quickview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="Classes\Tools.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Quickview.resx">
+      <DependentUpon>Quickview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>

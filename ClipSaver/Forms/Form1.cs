@@ -20,6 +20,7 @@ namespace ClipSaver
         public static bool programitclly2 = true;
         public static bool programitclly3 = true;
         public static bool programitclly4 = true;
+        public static bool programitclly5 = true;
 
         
         private IntPtr _ClipboardViewerNext;
@@ -40,12 +41,12 @@ namespace ClipSaver
                             {
                                 copiedtext = ClipboardCom.GetText();
                             }
-                            catch (Exception e) {
+                            catch (Exception ) {
                                 copiedtext = null;
                             }
-                            if (copiedtext != null && copiedtext.Length > 0 && statics.LastClip != copiedtext)
+                            if (copiedtext != null && copiedtext.Length > 0 && Constants.LastClip != copiedtext)
                             {
-                                statics.LastClip = copiedtext;
+                                Constants.LastClip = copiedtext;
 
                                 if (CheclDoublecate.Checked == true)
                                 {
@@ -68,10 +69,10 @@ namespace ClipSaver
                                     windowname = "Not Saved";
                                 }
 
-                                Configer.SaveData(Tools.EBase64(statics.LastClip + "•" + DateTime.Now.ToString()+ "•" + windowname));
-                                Configer.WriteToxml(Configer.Targets.lastclip, Tools.EBase64(statics.LastClip));
-                               
-                                    Loger(new object[] { statics.LastClip, DateTime.Now.ToString(),windowname });
+                                Configer.SaveData(Tools.EBase64(Constants.LastClip + "•" + DateTime.Now.ToString()+ "•" + windowname));
+                                Configer.WriteToxml(Configer.Targets.lastclip, Tools.EBase64(Constants.LastClip));
+
+                                Loger(new object[] { Constants.LastClip, DateTime.Now.ToString(), windowname });
                                 
 
                             }
@@ -79,12 +80,67 @@ namespace ClipSaver
 
                     
                     }
-                    catch (Exception e) { }
+                    catch (Exception ) { }
                 skippit:
+                    base.WndProc(ref m);
                     break;
+
+                case Constants.WM_HOTKEY_MSG_ID:
+                    HandleHotkey();
+                    base.WndProc(ref m);
+                    break;
+
                 default:
                     base.WndProc(ref m);
                     break;
+            }
+        }
+
+        public static Quickview vew;
+
+        private void HandleHotkey()
+        {
+
+            if (iamhidden && checkhotkey.Checked == true)
+            {
+
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    string[] hold = new string[dataGridView1.Rows.Count];
+                    int cont = 0;
+                    foreach (DataGridViewRow item in dataGridView1.Rows)
+                    {
+                        hold[cont] = item.Cells[0].Value.ToString();
+                        cont += 1;
+                    }
+
+
+                    if (vew == null)
+                    {
+                        vew = new Quickview(hold);
+                        
+                        vew.Show();
+                        
+                    }
+                   
+                }
+
+               
+
+               // iamhidden = false;
+               // this.ShowInTaskbar = true;
+                
+               // drakeUITabControl1.SelectedIndex = 1;
+               // this.WindowState = FormWindowState.Normal;
+
+               //// this.Show();
+               
+               // _ClipboardViewerNext = SetClipboardViewer(this.Handle);
+               // ghk = new KeyHandler(Constants.CTRL, Keys.F, this);
+               // ghk.Register();
+               // drakeUITabControl1.TabVisible = false;
+              
+               
             }
         }
 
@@ -105,10 +161,13 @@ namespace ClipSaver
             }
             return false;
         }
-
+        private KeyHandler ghk;
         public Form1()
         {
             InitializeComponent();
+            ghk = new KeyHandler(Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
+            
         }
 
         private void DrakeUIButtonIcon3_Click(object sender, EventArgs e)
@@ -119,10 +178,23 @@ namespace ClipSaver
             this.WindowState = FormWindowState.Minimized;
             Configer.showalert("Hello iam still here.");
             _ClipboardViewerNext = SetClipboardViewer(this.Handle);
+            ghk = new KeyHandler(Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
         }
      
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (!File.Exists(Constants.ConfigPath))
+            {
+                File.Create(Constants.ConfigPath).Dispose();
+                File.WriteAllText(Constants.ConfigPath, Properties.Resources.DefultConf);
+            }
+
+            if (!File.Exists(Constants.datapath))
+            {
+                File.Create(Constants.datapath).Dispose();
+                File.WriteAllText(Constants.datapath, Properties.Resources.Defulydata);
+            }
 
             typeof(DataGridView).InvokeMember(
    "DoubleBuffered",
@@ -133,37 +205,30 @@ namespace ClipSaver
 
 
 
-            CheckWindow.Checked = statics.mysettings.Save_Windows_Name;
-            CheclDoublecate.Checked = statics.mysettings.Save_Windows_Name;
-            CheckClose.Checked = statics.mysettings.dontclose;
+            CheckWindow.Checked = Constants.mysettings.Save_Windows_Name;
+            CheclDoublecate.Checked = Constants.mysettings.Save_Windows_Name;
+            CheckClose.Checked = Constants.mysettings.dontclose;
+            checkhotkey.Checked = Constants.mysettings.usehotkeys;
+            checkstartup.Checked = Constants.mysettings.Add_toStart;
 
 
 
             _ClipboardViewerNext = SetClipboardViewer(this.Handle);
-
+            ghk = new KeyHandler(Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
             this.Opacity = 0;
             Splash S = new Splash();
             S.ShowDialog();
             S.Dispose();
-            if (!File.Exists(statics.ConfigPath))
-            {
-                File.Create(statics.ConfigPath).Dispose();
-                File.WriteAllText(statics.ConfigPath,Properties.Resources.DefultConf);
-            }
+           
 
-            if (!File.Exists(statics.datapath))
+            Constants.LastClip = Configer.Readxml(Configer.Targets.lastclip);
+            if (Constants.LastClip != "null" && Constants.LastClip.Length >0)
             {
-                File.Create(statics.datapath).Dispose();
-                File.WriteAllText(statics.datapath, Properties.Resources.Defulydata);
-            }
-
-            statics.LastClip = Configer.Readxml(Configer.Targets.lastclip);
-            if (statics.LastClip != "null" && statics.LastClip.Length >0)
-            {
-                statics.LastClip = Tools.DBase64(statics.LastClip);
+                Constants.LastClip = Tools.DBase64(Constants.LastClip);
             }
             //MessageBox.Show(statics.LastClip);
-            if (statics.isFromStartUp)
+            if (Constants.isFromStartUp)
             {
                 this.ShowInTaskbar = false;
                // this.Hide();
@@ -178,7 +243,6 @@ namespace ClipSaver
             {
                 this.Opacity = 1;
                 iamhidden = false;
-                checkstartup.Checked = Convert.ToBoolean(Configer.Readxml(Configer.Targets.tostartup));
 
                 string[] olddata = Configer.LoadData();
                 if (olddata != null)
@@ -246,11 +310,16 @@ namespace ClipSaver
             this.WindowState = FormWindowState.Normal;
             this.Show();
             _ClipboardViewerNext = SetClipboardViewer(this.Handle);
+            ghk = new KeyHandler(Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
         }
 
         private void NotifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            ctxminu.Show(MousePosition);
+            if (e.Button == MouseButtons.Right)
+            {
+                ctxminu.Show(MousePosition);
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -264,13 +333,17 @@ namespace ClipSaver
             {
                 if (checkstartup.Checked == true)
                 {
-                    Configer.WriteToxml(Configer.Targets.tostartup, "true");
+                   
+                    Constants.mysettings.Add_toStart = true;
+                    Constants.mysettings.Save();
                     Alert.ShowSucess("Program Add to Windows Startup");
                     Configer.Hanelstartup(true);
                 }
                 else
                 {
-                    Configer.WriteToxml(Configer.Targets.tostartup, "false");
+                   
+                    Constants.mysettings.Add_toStart = false;
+                    Constants.mysettings.Save();
                     Alert.ShowWarning("Program removed from Windows Startup");
                     Configer.Hanelstartup(false);
                 }
@@ -312,14 +385,16 @@ namespace ClipSaver
                     iamhidden = true;
                     this.WindowState = FormWindowState.Minimized;
                     Configer.showalert("Hello iam still here.");
-                    _ClipboardViewerNext = SetClipboardViewer(this.Handle);
-                    e.Cancel = true;
+                
                 }
             }
 
-          
-        
-         
+            _ClipboardViewerNext = SetClipboardViewer(this.Handle);
+            ghk = new KeyHandler(Constants.CTRL + Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
+            e.Cancel = true;
+
+
         }
 
         private void CheckWindow_ValueChanged(object sender, bool value)
@@ -328,13 +403,13 @@ namespace ClipSaver
             {
                 if (CheckWindow.Checked == true)
                 {
-                    statics.mysettings.Save_Windows_Name = true;
-                    statics.mysettings.Save();
+                    Constants.mysettings.Save_Windows_Name = true;
+                    Constants.mysettings.Save();
                 }
                 else
                 {
-                    statics.mysettings.Save_Windows_Name = false;
-                    statics.mysettings.Save();
+                    Constants.mysettings.Save_Windows_Name = false;
+                    Constants.mysettings.Save();
                     
                 }
             }
@@ -374,10 +449,10 @@ namespace ClipSaver
         {
             if (MessageBox.Show("Are you Sure You Want to \n Delete All Saved Logs.","Warning",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (File.Exists(statics.datapath))
+                if (File.Exists(Constants.datapath))
                 {
-                    File.Delete(statics.datapath);
-                    File.WriteAllText(statics.datapath, Properties.Resources.Defulydata);
+                    File.Delete(Constants.datapath);
+                    File.WriteAllText(Constants.datapath, Properties.Resources.Defulydata);
                     dataGridView1.Rows.Clear();
                 }
             }
@@ -389,13 +464,13 @@ namespace ClipSaver
             {
                 if (CheclDoublecate.Checked == true)
                 {
-                    statics.mysettings.Anti_doublecate = true;
-                    statics.mysettings.Save();
+                    Constants.mysettings.Anti_doublecate = true;
+                    Constants.mysettings.Save();
                 }
                 else
                 {
-                    statics.mysettings.Anti_doublecate = false;
-                    statics.mysettings.Save();
+                    Constants.mysettings.Anti_doublecate = false;
+                    Constants.mysettings.Save();
 
                 }
             }
@@ -408,13 +483,13 @@ namespace ClipSaver
             {
                 if (CheckClose.Checked == true)
                 {
-                    statics.mysettings.dontclose = true;
-                    statics.mysettings.Save();
+                    Constants.mysettings.dontclose = true;
+                    Constants.mysettings.Save();
                 }
                 else
                 {
-                    statics.mysettings.dontclose = false;
-                    statics.mysettings.Save();
+                    Constants.mysettings.dontclose = false;
+                    Constants.mysettings.Save();
 
                 }
             }
@@ -428,10 +503,43 @@ namespace ClipSaver
             if (dataGridView1.SelectedRows[0].Index > -1)
             {
                 DataGridViewRow Trow = dataGridView1.SelectedRows[0];
+                isrunning = false;
                 Clipboard.SetText(Trow.Cells[0].Value.ToString());
+                isrunning = true;
                 Alert.ShowSucess("Text Copied Successfully ✔");
             }
          
+        }
+
+        private void Checkhotkey_ValueChanged(object sender, bool value)
+        {
+            if (!programitclly5)
+            {
+                if (checkhotkey.Checked == true)
+                {
+                    Constants.mysettings.usehotkeys = true;
+                    Constants.mysettings.Save();
+                }
+                else
+                {
+                    Constants.mysettings.usehotkeys = false;
+                    Constants.mysettings.Save();
+
+                }
+            }
+            programitclly5 = false;
+        }
+
+        private void NotifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            iamhidden = false;
+            this.ShowInTaskbar = true;
+            this.WindowState = FormWindowState.Normal;
+            this.Show();
+            this.TopMost = true;
+            _ClipboardViewerNext = SetClipboardViewer(this.Handle);
+            ghk = new KeyHandler(Constants.ALT + Constants.SHIFT, Keys.S, this);
+            ghk.Register();
         }
     }
 }

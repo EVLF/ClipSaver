@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.startbtn = new DrakeUI.Framework.DrakeUIButtonIcon();
             this.stopbtn = new DrakeUI.Framework.DrakeUIButtonIcon();
             this.drakeUIButtonIcon3 = new DrakeUI.Framework.DrakeUIButtonIcon();
@@ -56,6 +56,8 @@
             this.stats = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.drakeUISymbolLabel5 = new DrakeUI.Framework.DrakeUISymbolLabel();
+            this.checkhotkey = new DrakeUI.Framework.DrakeUICheckBox();
             this.drakeUISymbolLabel4 = new DrakeUI.Framework.DrakeUISymbolLabel();
             this.CheckClose = new DrakeUI.Framework.DrakeUICheckBox();
             this.drakeUISymbolLabel3 = new DrakeUI.Framework.DrakeUISymbolLabel();
@@ -84,7 +86,7 @@
             this.startbtn.FillHoverColor = System.Drawing.Color.Lime;
             this.startbtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.startbtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.startbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.startbtn.Font = new System.Drawing.Font("Roboto", 12F);
             this.startbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.startbtn.Location = new System.Drawing.Point(0, 0);
             this.startbtn.Name = "startbtn";
@@ -108,7 +110,7 @@
             this.stopbtn.FillHoverColor = System.Drawing.Color.Red;
             this.stopbtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.stopbtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.stopbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.stopbtn.Font = new System.Drawing.Font("Roboto", 12F);
             this.stopbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.stopbtn.Location = new System.Drawing.Point(0, 35);
             this.stopbtn.Name = "stopbtn";
@@ -133,7 +135,7 @@
             this.drakeUIButtonIcon3.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.drakeUIButtonIcon3.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.drakeUIButtonIcon3.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.drakeUIButtonIcon3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.drakeUIButtonIcon3.Font = new System.Drawing.Font("Roboto", 12F);
             this.drakeUIButtonIcon3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.drakeUIButtonIcon3.Location = new System.Drawing.Point(0, 70);
             this.drakeUIButtonIcon3.Name = "drakeUIButtonIcon3";
@@ -156,6 +158,7 @@
             this.notifyIcon1.Text = "ClipSaver";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseClick);
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseDoubleClick);
             // 
             // dataGridView1
             // 
@@ -163,39 +166,39 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txt,
             this.Dat,
             this.Program});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
@@ -204,8 +207,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(468, 380);
             this.dataGridView1.TabIndex = 6;
@@ -231,52 +234,56 @@
             // 
             // ctxminu
             // 
-            this.ctxminu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(67)))), ((int)(((byte)(58)))));
-            this.ctxminu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ctxminu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(216)))), ((int)(((byte)(220)))));
+            this.ctxminu.Font = new System.Drawing.Font("Roboto", 9F);
             this.ctxminu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.enableToolStripMenuItem,
             this.disableToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.ctxminu.Name = "ctxminu";
-            this.ctxminu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ctxminu.Size = new System.Drawing.Size(132, 100);
-            this.ctxminu.Style = DrakeUI.Framework.UIStyle.DrakeColorBlack;
+            this.ctxminu.ShowImageMargin = false;
+            this.ctxminu.Size = new System.Drawing.Size(90, 92);
+            this.ctxminu.Style = DrakeUI.Framework.UIStyle.Black;
             this.ctxminu.StyleCustomMode = true;
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.openToolStripMenuItem.Image = global::ClipSaver.Properties.Resources._3w_g;
+            this.openToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.openToolStripMenuItem.Font = new System.Drawing.Font("Roboto", 9F);
+            this.openToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // enableToolStripMenuItem
             // 
-            this.enableToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.enableToolStripMenuItem.Image = global::ClipSaver.Properties.Resources._3d_g;
+            this.enableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.enableToolStripMenuItem.Font = new System.Drawing.Font("Roboto", 9F);
+            this.enableToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
-            this.enableToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.enableToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
             this.enableToolStripMenuItem.Text = "Enable";
             this.enableToolStripMenuItem.Click += new System.EventHandler(this.EnableToolStripMenuItem_Click);
             // 
             // disableToolStripMenuItem
             // 
-            this.disableToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.disableToolStripMenuItem.Image = global::ClipSaver.Properties.Resources._0z;
+            this.disableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.disableToolStripMenuItem.Font = new System.Drawing.Font("Roboto", 9F);
+            this.disableToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.disableToolStripMenuItem.Name = "disableToolStripMenuItem";
-            this.disableToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.disableToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
             this.disableToolStripMenuItem.Text = "Disable";
             this.disableToolStripMenuItem.Click += new System.EventHandler(this.DisableToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.exitToolStripMenuItem.Image = global::ClipSaver.Properties.Resources.__;
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Roboto", 9F);
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -284,7 +291,7 @@
             // 
             this.checkstartup.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.checkstartup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkstartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkstartup.Font = new System.Drawing.Font("Roboto", 12F);
             this.checkstartup.ForeColor = System.Drawing.Color.White;
             this.checkstartup.Location = new System.Drawing.Point(27, 37);
             this.checkstartup.Name = "checkstartup";
@@ -324,7 +331,7 @@
             this.drakeUITabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.drakeUITabControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.drakeUITabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.drakeUITabControl1.ItemSize = new System.Drawing.Size(150, 40);
+            this.drakeUITabControl1.ItemSize = new System.Drawing.Size(155, 40);
             this.drakeUITabControl1.Location = new System.Drawing.Point(0, 0);
             this.drakeUITabControl1.MenuStyle = DrakeUI.Framework.UIMenuStyle.Custom;
             this.drakeUITabControl1.Name = "drakeUITabControl1";
@@ -391,6 +398,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.tabPage3.Controls.Add(this.drakeUISymbolLabel5);
+            this.tabPage3.Controls.Add(this.checkhotkey);
             this.tabPage3.Controls.Add(this.drakeUISymbolLabel4);
             this.tabPage3.Controls.Add(this.CheckClose);
             this.tabPage3.Controls.Add(this.drakeUISymbolLabel3);
@@ -406,6 +415,37 @@
             this.tabPage3.Size = new System.Drawing.Size(468, 380);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Options";
+            // 
+            // drakeUISymbolLabel5
+            // 
+            this.drakeUISymbolLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.drakeUISymbolLabel5.ForeColor = System.Drawing.Color.White;
+            this.drakeUISymbolLabel5.IsCircle = true;
+            this.drakeUISymbolLabel5.Location = new System.Drawing.Point(278, 265);
+            this.drakeUISymbolLabel5.Name = "drakeUISymbolLabel5";
+            this.drakeUISymbolLabel5.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.drakeUISymbolLabel5.Size = new System.Drawing.Size(33, 35);
+            this.drakeUISymbolLabel5.Style = DrakeUI.Framework.UIStyle.Custom;
+            this.drakeUISymbolLabel5.StyleCustomMode = true;
+            this.drakeUISymbolLabel5.Symbol = 61529;
+            this.drakeUISymbolLabel5.SymbolColor = System.Drawing.SystemColors.ActiveCaption;
+            this.drakeUISymbolLabel5.TabIndex = 18;
+            this.drakeUIToolTip1.SetToolTip(this.drakeUISymbolLabel5, "Open small window\r\non top right to for\r\nfast text copy");
+            // 
+            // checkhotkey
+            // 
+            this.checkhotkey.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
+            this.checkhotkey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkhotkey.Font = new System.Drawing.Font("Roboto", 12F);
+            this.checkhotkey.ForeColor = System.Drawing.Color.White;
+            this.checkhotkey.Location = new System.Drawing.Point(27, 271);
+            this.checkhotkey.Name = "checkhotkey";
+            this.checkhotkey.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.checkhotkey.Size = new System.Drawing.Size(245, 29);
+            this.checkhotkey.Style = DrakeUI.Framework.UIStyle.Custom;
+            this.checkhotkey.TabIndex = 17;
+            this.checkhotkey.Text = "Use HotKeys (Alt + Shift + S)";
+            this.checkhotkey.ValueChanged += new DrakeUI.Framework.DrakeUICheckBox.OnValueChanged(this.Checkhotkey_ValueChanged);
             // 
             // drakeUISymbolLabel4
             // 
@@ -427,7 +467,7 @@
             // 
             this.CheckClose.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.CheckClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CheckClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CheckClose.Font = new System.Drawing.Font("Roboto", 12F);
             this.CheckClose.ForeColor = System.Drawing.Color.White;
             this.CheckClose.Location = new System.Drawing.Point(27, 213);
             this.CheckClose.Name = "CheckClose";
@@ -474,7 +514,7 @@
             // 
             this.CheclDoublecate.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.CheclDoublecate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CheclDoublecate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CheclDoublecate.Font = new System.Drawing.Font("Roboto", 12F);
             this.CheclDoublecate.ForeColor = System.Drawing.Color.White;
             this.CheclDoublecate.Location = new System.Drawing.Point(27, 156);
             this.CheclDoublecate.Name = "CheclDoublecate";
@@ -487,15 +527,15 @@
             // 
             // drakeUIButtonIcon1
             // 
-            this.drakeUIButtonIcon1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.drakeUIButtonIcon1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.drakeUIButtonIcon1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.drakeUIButtonIcon1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.drakeUIButtonIcon1.FillHoverColor = System.Drawing.Color.Lime;
+            this.drakeUIButtonIcon1.FillHoverColor = System.Drawing.Color.Black;
             this.drakeUIButtonIcon1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.drakeUIButtonIcon1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.drakeUIButtonIcon1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
-            this.drakeUIButtonIcon1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
-            this.drakeUIButtonIcon1.Location = new System.Drawing.Point(319, 333);
+            this.drakeUIButtonIcon1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.drakeUIButtonIcon1.ForeColor = System.Drawing.Color.Red;
+            this.drakeUIButtonIcon1.Location = new System.Drawing.Point(0, 345);
             this.drakeUIButtonIcon1.Name = "drakeUIButtonIcon1";
             this.drakeUIButtonIcon1.Radius = 20;
             this.drakeUIButtonIcon1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -503,7 +543,7 @@
             this.drakeUIButtonIcon1.RectHoverColor = System.Drawing.Color.White;
             this.drakeUIButtonIcon1.RectPressColor = System.Drawing.Color.Lime;
             this.drakeUIButtonIcon1.RectSelectedColor = System.Drawing.Color.Lime;
-            this.drakeUIButtonIcon1.Size = new System.Drawing.Size(137, 35);
+            this.drakeUIButtonIcon1.Size = new System.Drawing.Size(468, 35);
             this.drakeUIButtonIcon1.Style = DrakeUI.Framework.UIStyle.Custom;
             this.drakeUIButtonIcon1.Symbol = 61944;
             this.drakeUIButtonIcon1.TabIndex = 11;
@@ -530,7 +570,7 @@
             // 
             this.CheckWindow.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.CheckWindow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CheckWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CheckWindow.Font = new System.Drawing.Font("Roboto", 12F);
             this.CheckWindow.ForeColor = System.Drawing.Color.White;
             this.CheckWindow.Location = new System.Drawing.Point(27, 95);
             this.CheckWindow.Name = "CheckWindow";
@@ -609,6 +649,8 @@
         private DrakeUI.Framework.DrakeUICheckBox CheclDoublecate;
         private DrakeUI.Framework.DrakeUISymbolLabel drakeUISymbolLabel4;
         private DrakeUI.Framework.DrakeUICheckBox CheckClose;
+        private DrakeUI.Framework.DrakeUICheckBox checkhotkey;
+        private DrakeUI.Framework.DrakeUISymbolLabel drakeUISymbolLabel5;
     }
 }
 

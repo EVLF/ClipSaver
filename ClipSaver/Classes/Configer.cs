@@ -15,7 +15,6 @@ namespace ClipSaver
     class Configer
     {
        public  enum Targets{
-            tostartup= 1,
             lastclip= 2
         }
 
@@ -28,9 +27,9 @@ namespace ClipSaver
             {
                 return;
             }
-            XElement t = XElement.Load(statics.ConfigPath);
+            XElement t = XElement.Load(Constants.ConfigPath);
             t.Element("setting").Element(target).Value = val;
-            t.Save(statics.ConfigPath);
+            t.Save(Constants.ConfigPath);
            
         }
 
@@ -42,7 +41,7 @@ namespace ClipSaver
             {
                 return "null";
             }
-            XElement t = XElement.Load(statics.ConfigPath);
+            XElement t = XElement.Load(Constants.ConfigPath);
             return t.Element("setting").Element(target).Value;
 
         }
@@ -51,10 +50,10 @@ namespace ClipSaver
         public static void SaveData( string data)
         {
 
-            XElement t = XElement.Load(statics.datapath);
+            XElement t = XElement.Load(Constants.datapath);
             var a = t.Descendants("setting").FirstOrDefault();
             a.Add(new XElement("data", data));
-            t.Save(statics.datapath);
+            t.Save(Constants.datapath);
             
 
         }
@@ -62,7 +61,7 @@ namespace ClipSaver
         public static string[] LoadData()
         {
 
-            XElement t = XElement.Load(statics.datapath);
+            XElement t = XElement.Load(Constants.datapath);
             int count = t.Element("setting").Elements("data").Count();
 
 
@@ -95,8 +94,6 @@ namespace ClipSaver
         {
             switch (target)
             {
-                case Targets.tostartup:
-                    return "tostartup";
 
                 case Targets.lastclip:
                     return "lastclip";
