@@ -13,6 +13,8 @@ Small Program to automatically save all clipboards text , never lose what you co
 
 5: Use HotKeys (open float window to easy copy text)
 ----------------------------
+Watch on YT : https://www.youtube.com/channel/UC-k_KeCkQ6RYm0GFoLfd7Cw
+---------------------
 PS : Data Saved in xml file 
 in the same folder where program running
 and encoded with Base64
