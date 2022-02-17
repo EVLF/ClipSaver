@@ -1,7 +1,7 @@
 # ClipSaver
 Small Program to automatically save all clipboards text , never lose what you copy
 ----------------------------
-**Optins** : 
+**Options** : 
 
 1 : add to windows startup
 
