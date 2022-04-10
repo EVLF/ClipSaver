@@ -40,4 +40,8 @@ Simple library for toast alert notification in winforms.
 DrakeUI Framework Library - Libraries tools, software development,applications, interface design many colors.
 
 -------
+
+XMR Donate 😁 : 872Weh1x7D5iwSeJXfWXEgToksFP9pxMgG8n9cH1g1jhWa29WD5DHBpi5am4D3L7t35ytyn8dMHbgQUwvAv3yZr9SPxeCHc
+
+-------
 This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details
